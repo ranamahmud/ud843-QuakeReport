@@ -67,10 +67,11 @@ public final class QueryUtils {
                 String outputMag = formatter.format(mag);
                 String place = properties.getString("place");
                 Long dateLong = properties.getLong("time");
+                String url = properties.getString("url");
                 Date dateObject = new Date(dateLong);
                 SimpleDateFormat dateFormatter = new SimpleDateFormat("MMM DD, yyyy");
                 String dateToDisplay = dateFormatter.format(dateObject);
-                Earthquake earthquake = new Earthquake(outputMag, place, dateToDisplay);
+                Earthquake earthquake = new Earthquake(outputMag, place, dateToDisplay,url);
                 earthquakes.add(earthquake);
             }
 
