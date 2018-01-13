@@ -10,6 +10,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -62,12 +63,14 @@ public final class QueryUtils {
                 JSONObject feature = features.getJSONObject(i);
                 JSONObject properties = feature.getJSONObject("properties");
                 Double mag = properties.getDouble("mag");
+                DecimalFormat formatter = new DecimalFormat("0.00");
+                String outputMag = formatter.format(mag);
                 String place = properties.getString("place");
-                String dateLong = properties.getString("time");
+                Long dateLong = properties.getLong("time");
                 Date dateObject = new Date(dateLong);
                 SimpleDateFormat dateFormatter = new SimpleDateFormat("MMM DD, yyyy");
                 String dateToDisplay = dateFormatter.format(dateObject);
-                Earthquake earthquake = new Earthquake(mag, place, dateToDisplay);
+                Earthquake earthquake = new Earthquake(outputMag, place, dateToDisplay);
                 earthquakes.add(earthquake);
             }
 
