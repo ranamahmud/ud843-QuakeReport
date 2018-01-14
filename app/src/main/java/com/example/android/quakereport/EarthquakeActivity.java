@@ -82,7 +82,7 @@ public class EarthquakeActivity extends AppCompatActivity implements LoaderManag
         ConnectivityManager connectivityManager = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = null;
         if (connectivityManager != null) {
-            networkInfo = connectivityManager.getNetworkInfo();
+            networkInfo = connectivityManager.getActiveNetworkInfo();
         }
         if(networkInfo!=null && networkInfo.isConnected()){
 
