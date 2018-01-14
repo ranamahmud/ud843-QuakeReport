@@ -110,7 +110,7 @@ public final class QueryUtils {
         HttpURLConnection httpURLConnection = null;
         InputStream inputStream = null;
         try{
-            httpURLConnection = (HttpURLConnection) url.openConnection():
+            httpURLConnection = (HttpURLConnection) url.openConnection();
             httpURLConnection.setReadTimeout(10000);
             httpURLConnection.setConnectTimeout(15000);
             httpURLConnection.setRequestMethod("GET");
@@ -138,7 +138,7 @@ public final class QueryUtils {
     private static String readFromStream(InputStream inputStream) {
         StringBuilder output = new StringBuilder();
         if(inputStream!=null){
-            InputStreamReader inputStreamReader = new InputStreamReader(inputStream, Charset.defaultCharset("UTF-8"));
+            InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
             BufferedReader reader = new BufferedReader(inputStreamReader);
             String line = null;
             try {
